@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OLMA — Know the fair price, anywhere</title>
+  <meta name="description" content="Snap a photo of any product or price tag and get an instant verdict on whether it's a good deal — at home or abroad." />
+  <meta name="color-scheme" content="light" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Background Pattern -->
+  <div class="pattern-bg" aria-hidden="true"></div>
+
+  <!-- Ambient background: blurred color fields + grain -->
+  <div class="ambient" aria-hidden="true">
+    <div class="blob blob-a"></div>
+    <div class="blob blob-b"></div>
+    <div class="blob blob-c"></div>
+  </div>
+  <svg class="grain" aria-hidden="true" width="100%" height="100%">
+    <filter id="noise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" />
+      <feColorMatrix type="saturate" values="0" />
+      <feComponentTransfer><feFuncA type="linear" slope="0.055" /></feComponentTransfer>
+    </filter>
+    <rect width="100%" height="100%" filter="url(#noise)" />
+  </svg>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="OLMA">
+        <img src="assets/olma-logo-full.png" alt="OLMA" class="main-logo-img" />
+      </a>
+      <div class="nav-links">
+        <a href="#how">How it works</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#download" class="nav-cta">Get the app</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero" id="top">
+    <span class="pebble pebble-1" aria-hidden="true"></span>
+    <span class="pebble olive pebble-2" aria-hidden="true"></span>
+    <span class="pebble pebble-3" aria-hidden="true"></span>
+
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="kicker reveal">Your global shopping companion</span>
+        <h1 class="reveal" style="--d:.08s">Know the <span class="accent-word">fair price</span>, anywhere you shop.</h1>
+        <p class="lede reveal" style="--d:.16s">Point your camera at any product or price tag. OLMA searches the web in seconds and tells you whether it's a good deal — where you're standing, and back home.</p>
+        <div class="hero-ctas reveal" style="--d:.24s">
+          <a class="btn btn-primary" href="#download">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+              <circle cx="12" cy="13" r="4" />
+            </svg>
+            Start scanning
+          </a>
+          <a class="btn btn-quiet" href="#how">See how it works</a>
+        </div>
+        <p class="hero-note reveal" style="--d:.32s">Free to try. No account required.</p>
+      </div>
+
+      <!-- Animated phone mockup -->
+      <div class="phone-stage reveal" style="--d:.2s">
+        <div class="eolma-bubble" aria-hidden="true">
+          얼마?
+          <small>how much?</small>
+        </div>
+        <div class="phone" aria-hidden="true">
+          <div class="phone-screen">
+            <div class="screen-ambient"></div>
+            <div class="screen-ui">
+              <div class="screen-title">Scan</div>
+              <div class="viewfinder">
+                <span class="corner tl"></span><span class="corner tr"></span>
+                <span class="corner bl"></span><span class="corner br"></span>
+                <div class="product-shape"></div>
+                <div class="scan-line"></div>
+              </div>
+              <div class="verdict-card">
+                <div class="verdict-head">
+                  <span class="verdict-product" id="demo-product">Espresso maker</span>
+                  <span class="verdict-pill good" id="demo-pill">Good deal</span>
+                </div>
+                <div class="verdict-prices">
+                  <div class="col">
+                    <div class="label">You saw</div>
+                    <div class="value" id="demo-local">€64</div>
+                  </div>
+                  <div class="col">
+                    <div class="label">Typical price</div>
+                    <div class="value" id="demo-home">€89</div>
+                  </div>
+                </div>
+                <div class="verdict-bar"><div class="fill" id="demo-bar"></div></div>
+              </div>
+              <div class="shutter"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- How it works: numbered ledger with Korean counting numerals -->
+  <section id="how">
+    <div class="wrap">
+      <span class="kicker reveal">How it works <span class="kr">· 이렇게 써요</span></span>
+      <h2 class="reveal" style="--d:.06s">From shelf to verdict<br />in seconds.</h2>
+
+      <div class="ledger">
+        <div class="ledger-row reveal">
+          <div class="ledger-num kr">하나<small>ONE</small></div>
+          <h3>Snap a photo</h3>
+          <p>Point your camera at any product or price tag — in a store, a market, or a duty-free shop. No barcodes, no typing. That's the whole job.</p>
+        </div>
+        <div class="ledger-row reveal" style="--d:.08s">
+          <div class="ledger-num kr">둘<small>TWO</small></div>
+          <h3>We search the web</h3>
+          <p>OLMA identifies the product and compares live prices locally and in your home market — currencies converted for you.</p>
+        </div>
+        <div class="ledger-row reveal" style="--d:.16s">
+          <div class="ledger-num kr">셋<small>THREE</small></div>
+          <h3>Get the verdict</h3>
+          <p>A clear call — good deal, fair, or overpriced — based on what this product should cost where you shop.</p>
+        </div>
+      </div>
+
+      <!-- Verdict spectrum -->
+      <div class="spectrum reveal">
+        <div class="spectrum-track">
+          <div class="spectrum-dot"></div>
+        </div>
+        <div class="spectrum-labels">
+          <div class="spectrum-label incredible">
+            <div class="name">Incredible deal</div>
+            <p>Don't walk, run! This price is rarely seen, making it a fantastic find.</p>
+          </div>
+          <div class="spectrum-label good">
+            <div class="name">Good deal</div>
+            <p>Meaningfully below the typical price. Buy it with confidence — or stock up.</p>
+          </div>
+          <div class="spectrum-label fair">
+            <div class="name">Fair price</div>
+            <p>In line with the market. You're not overpaying, but you're not winning either.</p>
+          </div>
+          <div class="spectrum-label high">
+            <div class="name">Overpriced</div>
+            <p>Above what it should cost. Walk away, wait, or shop around for a better price.</p>
+          </div>
+          <div class="spectrum-label ripoff">
+            <div class="name">Look elsewhere</div>
+            <p>Massively overpriced compared to the market. Do not buy this here.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features: alternating editorial rows -->
+  <section id="features">
+    <div class="wrap">
+      <span class="kicker reveal">Why OLMA</span>
+      <h2 class="reveal" style="--d:.06s">Built for how you<br />actually shop.</h2>
+
+      <div class="feature-rows">
+
+        <div class="feature-row reveal">
+          <div class="feature-copy">
+            <span class="index">— INSTANT COMPARISONS</span>
+            <h3>Live prices, not a stale database.</h3>
+            <p>Every scan runs a fresh web search across retailers. Verdicts reflect what the product costs right now — not last quarter.</p>
+          </div>
+          <div class="feature-visual draw">
+            <div class="eolma-bubble bubble-feat bubble-feat-1">
+              $120
+              <small>live price</small>
+            </div>
+            <!-- price line settling onto a fair-value band -->
+            <svg viewBox="0 0 380 200" fill="none" aria-hidden="true">
+              <line class="fv-stroke animate-draw" x1="10" y1="170" x2="370" y2="170" stroke-width="1" style="--len:360" />
+              <line class="fv-accent animate-draw" x1="10" y1="96" x2="370" y2="96" stroke-width="1" stroke-dasharray="4 6" opacity="0.6" style="--len:360" />
+              <polyline class="fv-accent animate-draw" points="10,150 60,120 110,138 160,84 210,104 260,88 310,98 370,96"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="--len:520" />
+              <circle cx="370" cy="96" r="5" fill="#18ac91" />
+              <text class="fv-text" x="12" y="88" font-size="11" letter-spacing="1.5">TYPICAL PRICE</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="feature-row flip reveal">
+          <div class="feature-copy">
+            <span class="index">— TRAVEL-AWARE</span>
+            <h3>Home and away, one verdict.</h3>
+            <p>OLMA knows where you are and where home is. Never overpay when shopping abroad — or wonder if that airport deal is actually a deal.</p>
+          </div>
+          <div class="feature-visual draw">
+            <div class="eolma-bubble bubble-feat bubble-feat-2">
+              €45
+              <small>vs $50 at home</small>
+            </div>
+            <!-- two points connected across a globe arc -->
+            <svg viewBox="0 0 380 200" fill="none" aria-hidden="true" style="overflow:hidden">
+              <circle class="fv-stroke animate-draw" cx="190" cy="230" r="150" stroke-width="1" style="--len:945" />
+              <circle class="fv-stroke animate-draw" cx="190" cy="230" r="110" stroke-width="1" opacity="0.5" style="--len:692" />
+              <path class="fv-accent animate-draw" d="M80 130 Q 190 10 300 130" stroke-width="2" stroke-linecap="round" style="--len:340" />
+              <circle cx="80" cy="130" r="5" fill="#18ac91" />
+              <circle cx="300" cy="130" r="5" fill="#18ac91" />
+              <text class="fv-text" x="62" y="156" font-size="11" letter-spacing="1.5">HERE</text>
+              <text class="fv-text" x="282" y="156" font-size="11" letter-spacing="1.5">HOME</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="feature-row reveal">
+          <div class="feature-copy">
+            <span class="index">— SMART ADVICE</span>
+            <h3>More than a number.</h3>
+            <p>A recommendation, not just a price: buy now, wait for a sale, or find it cheaper somewhere specific. Verdicts are grounded in what the product should cost where you shop.</p>
+          </div>
+          <div class="feature-visual draw">
+            <div class="eolma-bubble bubble-feat bubble-feat-3">
+              Buy now
+              <small>rare price</small>
+            </div>
+            <!-- gauge needle pointing into the good zone -->
+            <svg viewBox="0 0 380 200" fill="none" aria-hidden="true">
+              <path class="fv-stroke animate-draw" d="M60 170 A 130 130 0 0 1 320 170" stroke-width="1.5" style="--len:410" />
+              <path class="animate-draw" d="M60 170 A 130 130 0 0 1 132 61" stroke="#21894f" stroke-width="3" stroke-linecap="round" style="--len:140" />
+              <path class="animate-draw" d="M143 54 A 130 130 0 0 1 237 54" stroke="#b8851f" stroke-width="3" stroke-linecap="round" style="--len:110" />
+              <path class="animate-draw" d="M248 61 A 130 130 0 0 1 320 170" stroke="#bf3d30" stroke-width="3" stroke-linecap="round" style="--len:140" />
+              <line class="fv-accent animate-draw" x1="190" y1="170" x2="112" y2="92" stroke-width="2.5" stroke-linecap="round" style="--len:112" />
+              <circle cx="190" cy="170" r="6" fill="#18ac91" />
+              <text class="fv-text" x="164" y="196" font-size="11" letter-spacing="1.5">VERDICT</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="feature-row flip reveal">
+          <div class="feature-copy">
+            <span class="index">— SCAN LIBRARY</span>
+            <h3>Every scan, remembered.</h3>
+            <p>Compare a product across stores and cities, and watch how prices move before you commit. Your library builds itself as you go.</p>
+          </div>
+          <div class="feature-visual draw">
+            <div class="eolma-bubble bubble-feat bubble-feat-4">
+              ₩55,000
+              <small>saved in seoul</small>
+            </div>
+            <!-- timeline of saved scans -->
+            <svg viewBox="0 0 380 200" fill="none" aria-hidden="true">
+              <line class="fv-stroke animate-draw" x1="30" y1="100" x2="350" y2="100" stroke-width="1.5" style="--len:320" />
+              <circle class="fv-accent animate-draw" cx="70" cy="100" r="8" stroke-width="2" style="--len:51" />
+              <circle class="fv-accent animate-draw" cx="150" cy="100" r="8" stroke-width="2" style="--len:51" />
+              <circle class="fv-accent animate-draw" cx="230" cy="100" r="8" stroke-width="2" style="--len:51" />
+              <circle cx="310" cy="100" r="8" fill="#18ac91" />
+              <text class="fv-text" x="52" y="136" font-size="11" letter-spacing="1.5">LISBON</text>
+              <text class="fv-text" x="134" y="72" font-size="11" letter-spacing="1.5">SEOUL</text>
+              <text class="fv-text" x="211" y="136" font-size="11" letter-spacing="1.5">OSLO</text>
+              <text class="fv-text" x="292" y="72" font-size="11" letter-spacing="1.5">TODAY</text>
+            </svg>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Name story -->
+  <section class="name-story">
+    <div class="wrap">
+      <video class="pebble-ring reveal" id="story-logo-video" src="assets/LogoAnimation.mov" width="72" height="72" muted playsinline onended="setTimeout(() => this.play(), 5000)"></video>
+      <div class="kr-big kr reveal" style="--d:.06s">얼마?</div>
+      <div class="romanized reveal" style="--d:.12s">eol·ma — "how much?"</div>
+      <p class="meaning reveal" style="--d:.18s">It's the first question you ask in any market, anywhere in the world. OLMA is named after it — and built to answer it.</p>
+    </div>
+  </section>
+
+  <!-- Pricing: ledger table -->
+  <section id="pricing">
+    <div class="wrap">
+      <span class="kicker reveal">Pricing</span>
+      <h2 class="reveal" style="--d:.06s">Pays for itself with<br />one good deal.</h2>
+
+      <div class="plans reveal" style="--d:.12s">
+        <div class="plans-head">
+          <span></span>
+          <div>
+            <div class="plan-name">Free</div>
+            <div class="plan-price">$0</div>
+            <div class="plan-per">forever</div>
+          </div>
+          <div>
+            <div class="plan-name pro">Pro</div>
+            <div class="plan-price">$4.99</div>
+            <div class="plan-per">per month</div>
+          </div>
+        </div>
+
+        <div class="plan-row">
+          <span class="what">Price scans</span>
+          <span class="mark dim">5 per month</span>
+          <span class="mark yes">Unlimited</span>
+        </div>
+        <div class="plan-row">
+          <span class="what">Instant verdicts</span>
+          <span class="mark">Included</span>
+          <span class="mark yes">Included</span>
+        </div>
+        <div class="plan-row">
+          <span class="what">Home &amp; local comparison</span>
+          <span class="mark">Included</span>
+          <span class="mark yes">Included</span>
+        </div>
+        <div class="plan-row">
+          <span class="what">Analysis speed</span>
+          <span class="mark dim">Standard</span>
+          <span class="mark yes">Priority servers</span>
+        </div>
+
+
+        <div class="plans-cta">
+          <span></span>
+          <a class="btn btn-quiet" href="#download">Download free</a>
+          <a class="btn btn-primary" href="#download">Go Pro</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta" id="download">
+    <span class="pebble pebble-l" aria-hidden="true"></span>
+    <span class="pebble olive pebble-r" aria-hidden="true"></span>
+    <div class="wrap">
+      <span class="kicker reveal">Get started</span>
+      <h2 class="reveal" style="--d:.06s">Stop guessing.<br />Start scanning.</h2>
+      <p class="lede reveal" style="--d:.12s">Unlock instant price checks and save money everywhere you shop — at home or halfway around the world.</p>
+      <a class="btn btn-primary reveal" style="--d:.2s" href="#">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+        </svg>
+        Download on the App Store
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span class="footer-brand" aria-label="OLMA">
+        <video src="assets/LogoAnimation.mov" class="footer-logo-video" autoplay muted playsinline onended="setTimeout(() => this.play(), 5000)"></video>
+        <span>© 2026 <span class="kr">· 얼마</span></span>
+      </span>
+      <span>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="mailto:evankim224@gmail.com">Support</a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

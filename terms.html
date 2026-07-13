@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Use — OLMA</title>
+  <meta name="color-scheme" content="light" />
+  <link rel="icon" href="assets/olma-logo.png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="ambient" aria-hidden="true">
+    <div class="blob blob-a"></div>
+    <div class="blob blob-b"></div>
+  </div>
+  <svg class="grain" aria-hidden="true" width="100%" height="100%">
+    <filter id="noise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" />
+      <feColorMatrix type="saturate" values="0" />
+      <feComponentTransfer><feFuncA type="linear" slope="0.055" /></feComponentTransfer>
+    </filter>
+    <rect width="100%" height="100%" filter="url(#noise)" />
+  </svg>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html" aria-label="OLMA">
+        <img src="assets/olma-logo-full.png" alt="OLMA" class="main-logo-img" />
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="mailto:evankim224@gmail.com" class="nav-cta">Contact us</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="legal-main">
+    <h1>Terms of Use</h1>
+    <p class="updated">Last updated: July 12, 2026</p>
+
+    <p>These Terms of Use govern your use of OLMA ("the app"). By downloading or using the app, you agree to these
+      terms and to Apple's standard <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Licensed
+      Application End User License Agreement</a>, which applies in addition to these terms.</p>
+
+    <h2>The app</h2>
+    <p>OLMA lets you scan products and price tags with your camera and get an AI-generated verdict on whether the
+      price is fair, comparing prices in your local and home markets. Core scanning features are free to use with a
+      daily limit. A "Pro" subscription unlocks additional features such as unlimited scans, faster analysis with
+      priority server access, and your full scan history.</p>
+
+    <h2>Subscriptions</h2>
+    <ul>
+      <li>Subscriptions are billed through your Apple ID account and renew automatically unless cancelled at least 24
+        hours before the end of the current period.</li>
+      <li>Your account will be charged for renewal within 24 hours prior to the end of the current period, at the price
+        you agreed to at purchase.</li>
+      <li>You can manage or cancel your subscription anytime in your device's Settings &gt; Apple ID &gt;
+        Subscriptions.</li>
+      <li>Any unused portion of a free trial period, if offered, is forfeited when you purchase a subscription.</li>
+      <li>Prices may vary by region and are shown in the app before purchase.</li>
+    </ul>
+
+    <h2>AI-generated content</h2>
+    <p>Price verdicts are produced by an AI model using live web search results. Prices change constantly and vary by
+      retailer, region, and time — verdicts are estimates, may occasionally be inaccurate or incomplete, and are
+      provided for general information only. Always verify the price and product details yourself before making a
+      purchase decision. OLMA does not provide financial advice.</p>
+
+    <h2>Acceptable use</h2>
+    <p>You agree not to misuse the app, attempt to circumvent scan limits, scrape or resell results, or use the app in
+      a way that violates applicable law or the rights of others.</p>
+
+    <h2>No warranty</h2>
+    <p>The app is provided "as is" without warranties of any kind, to the extent permitted by law. We are not
+      responsible for purchase decisions made based on the app's verdicts.</p>
+
+    <h2>Changes to these terms</h2>
+    <p>We may update these terms from time to time. Continued use of the app after changes means you accept the
+      updated terms.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about these terms? Contact us at <a href="mailto:evankim224@gmail.com">evankim224@gmail.com</a>.</p>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span class="footer-brand" aria-label="OLMA">
+        <video src="assets/LogoAnimation.mov" class="footer-logo-video" autoplay muted playsinline onended="setTimeout(() => this.play(), 5000)"></video>
+        <span>© 2026 <span class="kr">· 얼마</span></span>
+      </span>
+      <span>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="mailto:evankim224@gmail.com">Support</a>
+      </span>
+    </div>
+  </footer>
+
+</body>
+</html>
