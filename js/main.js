@@ -94,3 +94,27 @@ const storyVideo = document.getElementById("story-logo-video");
 if (storyVideo) {
   videoObserver.observe(storyVideo);
 }
+
+// App Store links inside in-app browsers (Instagram, Facebook, TikTok, etc.)
+//
+// iOS only hands a tap on apps.apple.com off to the App Store app when the
+// navigation is a real link activation. In-app webviews suppress that handoff,
+// so the tap dead-ends and nothing happens. Navigating programmatically instead
+// makes iOS render the App Store *web* page in the webview — which carries its
+// own "View" button, and that tap does open the App Store app.
+//
+// Real browsers keep the default one-tap behaviour.
+const IN_APP_BROWSER =
+  /Instagram|FBAN|FBAV|FB_IAB|Messenger|TikTok|BytedanceWebview|Line\/|Snapchat|Pinterest|LinkedInApp|Twitter/i.test(
+    navigator.userAgent
+  );
+
+if (IN_APP_BROWSER) {
+  document.addEventListener("click", (event) => {
+    const link = event.target.closest?.('a[href*="apps.apple.com"]');
+    if (!link || event.defaultPrevented) return;
+
+    event.preventDefault();
+    window.location.href = link.href;
+  });
+}
