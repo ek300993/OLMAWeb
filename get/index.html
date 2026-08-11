@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Get OLMA</title>
+<meta name="robots" content="noindex" />
+<link rel="icon" href="/assets/olma-logo.png" />
+<style>
+  :root {
+    --accent: #18ac91;
+    --bg: #faf9f4;
+    --ink: #20261f;
+    --ink-2: rgba(32, 38, 31, 0.62);
+    --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI",
+      Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100svh;
+    display: grid;
+    place-items: center;
+    padding: 32px 24px calc(32px + env(safe-area-inset-bottom));
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font);
+    text-align: center;
+  }
+  .logo { width: 84px; height: auto; margin-bottom: 22px; }
+  h1 { margin: 0 0 8px; font-size: 22px; letter-spacing: -0.01em; }
+  p { margin: 0 0 24px; font-size: 15px; line-height: 1.5; color: var(--ink-2); }
+  .btn {
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .hint { margin-top: 22px; font-size: 13px; color: var(--ink-2); }
+  .hint strong { color: var(--ink); }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+  <main>
+    <img src="/assets/olma-logo-full.png" alt="OLMA" class="logo" />
+    <h1>Opening the App Store…</h1>
+    <p id="status">Hang tight, this only takes a second.</p>
+
+    <a class="btn" id="cta" href="https://apps.apple.com/us/app/olma-scan-compare/id6790042890">
+      Download on the App Store
+    </a>
+
+    <p class="hint" id="hint" hidden>
+      Still here? Tap the <strong>•••</strong> menu in the corner and choose
+      <strong>Open in browser</strong>.
+    </p>
+  </main>
+
+<script>
+  var APP_STORE = "https://apps.apple.com/us/app/olma-scan-compare/id6790042890";
+  var ua = navigator.userAgent;
+  var isInstagram = /Instagram/i.test(ua);
+  var isInApp = /Instagram|FBAN|FBAV|FB_IAB|Messenger|TikTok|BytedanceWebview|Line\/|Snapchat|Pinterest|LinkedInApp|Twitter/i.test(ua);
+
+  // Treat any of these as "we handed off successfully and are being backgrounded".
+  var leaving = false;
+  function markLeaving() { leaving = true; }
+  window.addEventListener("pagehide", markLeaving);
+  window.addEventListener("blur", markLeaving);
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState === "hidden") markLeaving();
+  });
+
+  if (isInstagram) {
+    // Instagram's private scheme: hands the URL to the system browser, which
+    // then performs the App Store handoff that the webview itself refuses.
+    window.location.href = "instagram://extbrowser?url=" + encodeURIComponent(APP_STORE);
+  } else {
+    window.location.href = APP_STORE;
+  }
+
+  // If we're still sitting here, the handoff was blocked — show the manual route.
+  setTimeout(function () {
+    if (leaving || document.visibilityState === "hidden") return;
+    document.getElementById("status").textContent =
+      "Tap the button below to continue.";
+    if (isInApp) document.getElementById("hint").hidden = false;
+  }, 2000);
+</script>
+</body>
+</html>

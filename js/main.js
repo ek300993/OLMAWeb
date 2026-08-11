@@ -97,24 +97,85 @@ if (storyVideo) {
 
 // App Store links inside in-app browsers (Instagram, Facebook, TikTok, etc.)
 //
-// iOS only hands a tap on apps.apple.com off to the App Store app when the
-// navigation is a real link activation. In-app webviews suppress that handoff,
-// so the tap dead-ends and nothing happens. Navigating programmatically instead
-// makes iOS render the App Store *web* page in the webview — which carries its
-// own "View" button, and that tap does open the App Store app.
+// These webviews refuse to navigate to apps.apple.com — the tap is a silent
+// no-op whether it comes from a link activation or a JS navigation. Instagram
+// exposes a private scheme, instagram://extbrowser?url=…, that hands the URL
+// to the system browser; Safari then performs the App Store handoff normally.
+// Other in-app browsers have no such escape, so they fall through to a sheet
+// telling the user how to get out — better than a button that looks broken.
 //
 // Real browsers keep the default one-tap behaviour.
 const IN_APP_BROWSER =
   /Instagram|FBAN|FBAV|FB_IAB|Messenger|TikTok|BytedanceWebview|Line\/|Snapchat|Pinterest|LinkedInApp|Twitter/i.test(
     navigator.userAgent
   );
+const IS_INSTAGRAM = /Instagram/i.test(navigator.userAgent);
 
 if (IN_APP_BROWSER) {
+  let sheet = null;
+
+  const buildSheet = (url) => {
+    const el = document.createElement("div");
+    el.className = "iab-sheet";
+    el.innerHTML = `
+      <div class="iab-scrim"></div>
+      <div class="iab-card" role="dialog" aria-modal="true" aria-labelledby="iab-title">
+        <h3 id="iab-title">Open in your browser</h3>
+        <p>This app's built-in browser can't open the App Store. Tap the
+           <strong>•••</strong> menu in the corner, then choose
+           <strong>Open in browser</strong>.</p>
+        <button type="button" class="btn btn-primary iab-copy">Copy link instead</button>
+        <button type="button" class="btn btn-quiet iab-close">Close</button>
+      </div>`;
+
+    el.querySelector(".iab-copy").addEventListener("click", async (event) => {
+      const button = event.currentTarget;
+      try {
+        await navigator.clipboard.writeText(url);
+        button.textContent = "Copied — paste it in Safari";
+      } catch {
+        button.textContent = url;
+      }
+    });
+
+    const close = () => el.classList.remove("in");
+    el.querySelector(".iab-close").addEventListener("click", close);
+    el.querySelector(".iab-scrim").addEventListener("click", close);
+
+    document.body.appendChild(el);
+    return el;
+  };
+
+  // Any of these means we successfully handed off and the webview is going
+  // away — visibilityState alone is not reliable across these apps.
+  let leaving = false;
+  const markLeaving = () => { leaving = true; };
+  window.addEventListener("pagehide", markLeaving);
+  window.addEventListener("blur", markLeaving);
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") markLeaving();
+  });
+
   document.addEventListener("click", (event) => {
     const link = event.target.closest?.('a[href*="apps.apple.com"]');
     if (!link || event.defaultPrevented) return;
 
     event.preventDefault();
-    window.location.href = link.href;
+    const url = link.href;
+    leaving = false;
+
+    if (IS_INSTAGRAM) {
+      // Instagram opens this in the system browser, which then hits the App Store.
+      window.location.href = "instagram://extbrowser?url=" + encodeURIComponent(url);
+    } else {
+      // Costs nothing where the webview permits it.
+      window.location.href = url;
+    }
+
+    setTimeout(() => {
+      if (leaving || document.visibilityState === "hidden") return;
+      sheet = sheet || buildSheet(url);
+      sheet.classList.add("in");
+    }, 1500);
   });
 }
