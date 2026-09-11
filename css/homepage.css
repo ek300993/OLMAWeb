@@ -15,11 +15,11 @@
 .home .nav-links a { color: var(--ink-2); font-size: 12px; }
 .home .nav-links a:hover, .home .nav-links a[aria-current] { color: var(--accent-deep); }
 .nav-actions { display: flex; align-items: center; }
-.nav-download { color: #073d32; background: var(--accent); border-radius: 5px; padding: 11px 17px; text-decoration: none; font-size: 12px; font-weight: 600; display: flex; gap: 20px; align-items: center; transition: background .2s; }
-.nav-download:hover { background: #42bca5; }
+.nav-download { color: #fff; background: var(--action-bg); border-radius: 5px; padding: 11px 17px; text-decoration: none; font-size: 12px; font-weight: 700; display: flex; gap: 20px; align-items: center; transition: background .2s; }
+.nav-download:hover { background: var(--action-hover); }
 .home .btn { min-height: 48px; border-radius: 5px; padding: 14px 20px; font-size: 13px; font-weight: 600; gap: 12px; box-shadow: none; transition: background .2s, transform .2s; }
-.home .btn-primary { background: var(--accent); color: #063d32; }
-.home .btn-primary:hover { background: #3ebba3; transform: translateY(-2px); box-shadow: none; }
+.home .btn-primary { background: var(--action-bg); color: #fff; font-weight: 700; }
+.home .btn-primary:hover { background: var(--action-hover); transform: translateY(-2px); box-shadow: none; }
 .home .btn-primary > span:last-child { margin-left: 14px; }
 .home .btn-quiet { border-color: #8a9f95; color: var(--ink); background: transparent; }
 .home .btn-quiet:hover { background: #e8f4ee; transform: translateY(-2px); }
