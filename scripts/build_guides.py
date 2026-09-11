@@ -68,7 +68,7 @@ def page(title, description, path, body, data, kind="website"):
   {metadata(title, description, path, kind)}
   <meta name="color-scheme" content="light" />
   <link rel="icon" href="/assets/olma-logo.png" />
-  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/style.css?v=20260911-buttons" />
   <link rel="stylesheet" href="/css/guides.css" />
   {schema(data)}
 {analytics}{pixel_script}
