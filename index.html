@@ -3,13 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OLMA — Know the fair price, anywhere</title>
-  <meta name="description" content="Snap a photo of any product or price tag and get an instant decision on whether it's a good deal — at home or abroad." />
+  <title>OLMA: Photo Price Comparison App for iPhone</title>
+  <meta name="description" content="Compare prices from a photo with OLMA. Scan products and price tags, check deals at home or abroad, and shop smarter. Free to try on iPhone and iPad." />
+  <link rel="canonical" href="https://olmaapp.com/" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="apple-itunes-app" content="app-id=6790042890" />
+  <meta property="og:site_name" content="OLMA" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="OLMA: Photo Price Comparison App for iPhone" />
+  <meta property="og:description" content="Compare prices from a photo with OLMA. Scan products and price tags, check deals at home or abroad, and shop smarter. Free to try on iPhone and iPad." />
+  <meta property="og:url" content="https://olmaapp.com/" />
+  <meta property="og:image" content="https://olmaapp.com/assets/olma-logo.png" />
+  <meta property="og:image:width" content="846" />
+  <meta property="og:image:height" content="846" />
+  <meta property="og:image:alt" content="OLMA's teal pebble logo" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="OLMA: Photo Price Comparison App for iPhone" />
+  <meta name="twitter:description" content="Compare prices from a photo with OLMA. Scan products and price tags, check deals at home or abroad, and shop smarter. Free to try on iPhone and iPad." />
+  <meta name="twitter:image" content="https://olmaapp.com/assets/olma-logo.png" />
   <meta name="color-scheme" content="light" />
   <link rel="icon" href="assets/olma-logo.png" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/guides.css" />
+  <link rel="stylesheet" href="/css/homepage.css" />
+  <script src="/js/homepage.js" defer></script>
+  <script src="/js/analytics.js" defer></script>
 
   <!-- Google tag (gtag.js) -->
+  <script>
+    // Keep local development and preview hosts out of production Analytics.
+    window['ga-disable-G-GTPLYG54S1'] = !['olmaapp.com', 'www.olmaapp.com'].includes(window.location.hostname);
+  </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GTPLYG54S1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -20,365 +45,100 @@
   </script>
   <!-- Meta Pixel Code -->
   <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js'); fbq('init', '1390187582989149'); fbq('track', 'PageView');</script>
-  <noscript><img height="1" width="1" src="https://www.facebook.com/tr?id=1390187582989149&ev=PageView&noscript=1"/></noscript>
   <!-- End Meta Pixel Code -->
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://olmaapp.com/#organization", "name": "OLMA", "url": "https://olmaapp.com/", "logo": "https://olmaapp.com/assets/olma-logo.png", "sameAs": ["https://apps.apple.com/us/app/olma-scan-compare/id6790042890"]}, {"@type": "WebSite", "@id": "https://olmaapp.com/#website", "name": "OLMA", "url": "https://olmaapp.com/", "publisher": {"@id": "https://olmaapp.com/#organization"}, "inLanguage": "en"}, {"@type": "SoftwareApplication", "@id": "https://olmaapp.com/#app", "name": "OLMA: Scan & Compare", "url": "https://olmaapp.com/", "downloadUrl": "https://apps.apple.com/us/app/olma-scan-compare/id6790042890", "operatingSystem": "iOS, iPadOS", "applicationCategory": "ShoppingApplication", "description": "A photo price comparison app for iPhone and iPad. Scan a product or price tag to compare current retailer prices at home and abroad.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "5 free scans per month. Optional Pro subscriptions available."}, "publisher": {"@id": "https://olmaapp.com/#organization"}}]}</script>
 </head>
-<body>
-
-  <!-- Background Pattern -->
+<body class="home">
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="pattern-bg" aria-hidden="true"></div>
-
-  <!-- Ambient background: blurred color fields + grain -->
-  <div class="ambient" aria-hidden="true">
-    <div class="blob blob-a"></div>
-    <div class="blob blob-b"></div>
-    <div class="blob blob-c"></div>
-  </div>
-  <svg class="grain" aria-hidden="true" width="100%" height="100%">
-    <filter id="noise">
-      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" />
-      <feColorMatrix type="saturate" values="0" />
-      <feComponentTransfer><feFuncA type="linear" slope="0.055" /></feComponentTransfer>
-    </filter>
-    <rect width="100%" height="100%" filter="url(#noise)" />
-  </svg>
-
-  <!-- Nav -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <a class="brand" href="#top" aria-label="OLMA">
-        <img src="assets/olma-logo-full.png" alt="OLMA" class="main-logo-img" />
-      </a>
-      <div class="nav-links">
-        <a href="#how">How it works</a>
-        <a href="#features">Features</a>
-        <a href="#pricing">Pricing</a>
-        <a class="nav-cta" href="https://apps.apple.com/us/app/olma-scan-compare/id6790042890">Download</a>
+  <svg class="art-defs" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-scan" viewBox="0 0 24 24"><path d="M8 3H4a1 1 0 0 0-1 1v4m13-5h4a1 1 0 0 1 1 1v4M3 16v4a1 1 0 0 0 1 1h4m8 0h4a1 1 0 0 0 1-1v-4M3 12h18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  </defs></svg>
+  <nav class="nav" aria-label="Main navigation"><div class="nav-inner">
+    <a class="brand" href="#top" aria-label="OLMA home"><img src="/assets/olma-logo-full.png" width="3338" height="846" alt="OLMA" class="main-logo-img" /></a>
+    <div class="nav-links"><a href="#how">How it works</a><a href="#features">Features</a><a href="#pricing">Pricing</a><a class="nav-guides" href="/blog/">Guides</a></div>
+    <div class="nav-actions"><a class="nav-download" data-cta="navigation" href="https://apps.apple.com/us/app/olma-scan-compare/id6790042890">Get OLMA <span aria-hidden="true">↗</span></a></div>
+  </div></nav>
+  <main id="main">
+    <header class="home-hero wrap" id="top">
+      <div class="intro-copy">
+        <div class="brand-language"><span lang="ko">얼마?</span><small>eol·ma<br />“how much?”</small></div>
+        <h1>Scan. Compare.<br /><span class="accent-word">Shop smarter.</span></h1>
+        <p class="intro-description">Snap a product or price tag. OLMA compares current retailer prices and helps you decide if it’s a good deal — at home or abroad.</p>
+        <div class="intro-actions"><a class="btn btn-primary" data-cta="hero" href="https://apps.apple.com/us/app/olma-scan-compare/id6790042890"><svg width="19" height="19" aria-hidden="true"><use href="#icon-scan" /></svg>Download OLMA free <span aria-hidden="true">↗</span></a><a class="demo-link" href="#how">See how it works <span aria-hidden="true">↓</span></a></div>
+        <p class="free-note"><span aria-hidden="true">✓</span> 5 free scans a month <span class="note-divider">/</span> No account needed</p>
       </div>
-    </div>
-  </nav>
-
-  <!-- Hero -->
-  <header class="hero" id="top">
-    <span class="pebble pebble-1" aria-hidden="true"></span>
-    <span class="pebble olive pebble-2" aria-hidden="true"></span>
-    <span class="pebble pebble-3" aria-hidden="true"></span>
-
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <span class="kicker reveal">Your global shopping companion</span>
-        <h1 class="hero-kr reveal" style="--d:.08s">얼마?</h1>
-        <div class="romanized reveal" style="--d:.14s">eol·ma — "how much?"</div>
-        <p class="meaning reveal" style="--d:.2s">It's the first question you ask in any market, anywhere in the world. OLMA is named after it — and built to answer it.</p>
-        <p class="lede reveal" style="--d:.26s">Snap a photo of any product or price tag. OLMA checks it against prices and tells you in seconds whether it's a good deal.</p>
-        <div class="hero-ctas reveal" style="--d:.32s">
-          <a class="btn btn-primary" href="#download" onclick="trackDownload()">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
-              <circle cx="12" cy="13" r="4" />
-            </svg>
-            Start scanning
-          </a>
-          <a class="btn btn-quiet" href="#how">See how it works</a>
+      <div class="demo-area" aria-label="Explore the OLMA app">
+        <div class="scene" id="product-scene">
+          <figure class="app-preview" id="app-preview" aria-describedby="preview-caption">
+            <img class="app-screen" data-screen="scan" src="/assets/app-preview/scan.webp" width="1058" height="1973" fetchpriority="high" alt="OLMA’s camera scanning an aloe facial cleanser in a shop, with photo, shutter, and search controls." />
+            <img class="app-screen" data-screen="compare" src="/assets/app-preview/compare.webp" width="934" height="1930" loading="lazy" decoding="async" hidden alt="OLMA’s comparison result for an aloe facial cleanser: a Look elsewhere verdict, a typical price range, and prices from individual retailers." />
+            <img class="app-screen" data-screen="collection" src="/assets/app-preview/collection.webp" width="1032" height="1965" loading="lazy" decoding="async" hidden alt="OLMA’s Collection screen, showing saved product photos, prices, and verdicts organized into Beauty and Home & Kitchen." />
+          </figure>
         </div>
-        <p class="hero-note reveal" style="--d:.4s">Free to try. No account required.</p>
+        <div class="sample-controls" role="group" aria-label="Choose an app screen"><button type="button" data-preview="scan" aria-controls="app-preview" aria-pressed="true" disabled>Scan</button><button type="button" data-preview="compare" aria-controls="app-preview" aria-pressed="false" disabled>Compare</button><button type="button" data-preview="collection" aria-controls="app-preview" aria-pressed="false" disabled>Collection</button></div>
+        <p class="preview-caption" id="preview-caption" aria-live="polite">Spot something? Start with a photo.</p>
+        <p class="demo-disclaimer">Actual app screens · Prices shown are examples <button type="button" class="preview-playback" id="preview-playback" aria-label="Pause automatic app previews" hidden>Pause</button></p>
       </div>
+    </header>
 
-      <!-- Animated phone mockup -->
-      <div class="phone-stage reveal" style="--d:.2s">
-        <div class="eolma-bubble" aria-hidden="true">
-          얼마?
-          <small>how much?</small>
-        </div>
-        <div class="phone" aria-hidden="true">
-          <div class="phone-screen">
-            <div class="screen-ambient"></div>
-            <div class="screen-ui">
-              <div class="screen-title">Scan</div>
-              <div class="viewfinder">
-                <span class="corner tl"></span><span class="corner tr"></span>
-                <span class="corner bl"></span><span class="corner br"></span>
-                <div class="product-shape"></div>
-                <div class="scan-line"></div>
-              </div>
-              <div class="verdict-card">
-                <div class="verdict-head">
-                  <span class="verdict-product" id="demo-product">Espresso maker</span>
-                  <span class="verdict-pill good" id="demo-pill">Good deal</span>
-                </div>
-                <div class="verdict-prices">
-                  <div class="col">
-                    <div class="label">You saw</div>
-                    <div class="value" id="demo-local">€64</div>
-                  </div>
-                  <div class="col">
-                    <div class="label">Typical price</div>
-                    <div class="value" id="demo-home">€89</div>
-                  </div>
-                </div>
-                <div class="verdict-bar"><div class="fill" id="demo-bar"></div></div>
-              </div>
-              <div class="shutter"></div>
-            </div>
-          </div>
-        </div>
+    <section class="idea-section" id="how"><div class="wrap">
+      <div class="section-heading"><div><span class="eyebrow">How it works</span><h2>A price check in three simple steps.</h2></div></div>
+      <div class="steps-grid">
+        <article><span class="step-index">01</span><h3>Snap a photo</h3><p>Point your camera at a product or price tag. No barcode or long product name to type.</p></article>
+        <article><span class="step-index">02</span><h3>Compare prices</h3><p>OLMA identifies the item and searches current retailer prices locally and in your home market.</p></article>
+        <article><span class="step-index">03</span><h3>Get a clear verdict</h3><p>See whether it looks like a good deal, a fair price, or a reason to shop around.</p></article>
       </div>
-    </div>
-  </header>
+    </div></section>
 
-  <!-- How it works: numbered ledger with Korean counting numerals -->
-  <section id="how">
-    <div class="wrap">
-      <span class="kicker reveal">How it works <span class="kr">· 이렇게 써요</span></span>
-      <h2 class="reveal" style="--d:.06s">From shelf to decision<br />in seconds.</h2>
-
-      <div class="ledger">
-        <div class="ledger-row reveal">
-          <div class="ledger-num kr">하나<small>ONE</small></div>
-          <h3>Snap a photo</h3>
-          <p>Point your camera at any product or price tag — in a store, a market, or a duty-free shop. No barcodes, no typing. That's the whole job.</p>
-        </div>
-        <div class="ledger-row reveal" style="--d:.08s">
-          <div class="ledger-num kr">둘<small>TWO</small></div>
-          <h3>We search the web</h3>
-          <p>OLMA identifies the product and compares live prices locally and in your home market — currencies converted for you.</p>
-        </div>
-        <div class="ledger-row reveal" style="--d:.16s">
-          <div class="ledger-num kr">셋<small>THREE</small></div>
-          <h3>Get the decision</h3>
-          <p>A clear call — good deal, fair, or overpriced — based on what this product should cost where you shop.</p>
-        </div>
+    <section class="benefits-section wrap" id="features">
+      <div class="section-heading"><div><span class="eyebrow">OLMA features</span><h2>More context.<br />Better shopping decisions.</h2></div><p>Useful details for the things you find,<br />wherever you find them.</p></div>
+      <div class="benefit-grid">
+        <article class="benefit"><span class="feature-icon" aria-hidden="true"><svg width="24" height="24"><use href="#icon-scan" /></svg></span><h3>Compare prices from a photo</h3><p>Photograph the product or its price tag. OLMA identifies what you’re looking at and runs a fresh web search for current prices from retailers.</p><ul><li>Start a check without scanning a barcode.</li><li>Get a comparison while you’re still in the store.</li><li>Check the matched model, size, and condition before buying.</li></ul></article>
+        <article class="benefit"><span class="feature-icon" aria-hidden="true">↔</span><h3>Check prices at home and abroad</h3><p>Compare what a product costs where you are with what it costs in your home market. Currency conversion helps put those prices in context.</p><ul><li>See local and home-market comparisons.</li><li>Check an unfamiliar price while traveling.</li><li>Take a second look at market and duty-free offers.</li></ul></article>
+        <article class="benefit"><span class="feature-icon" aria-hidden="true">✓</span><h3>Understand whether it’s a good deal</h3><p>Get a price verdict, from an incredible deal to overpriced, with advice on buying now, waiting for a sale, or looking elsewhere.</p><ul><li>See how your find compares with current prices.</li><li>Get a recommendation to help with your next step.</li><li>Use the verdict as context, then confirm the retailer’s final price.</li></ul></article>
+        <article class="benefit"><span class="feature-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span><h3>Keep your finds in one place</h3><p>Your scans are saved automatically in your scan library. Revisit a product and compare the prices you’ve found across stores, cities, and countries.</p><ul><li>Look back at previous scans.</li><li>Compare a new find with an earlier one.</li><li>Build your own shopping history as you go.</li></ul></article>
       </div>
+    </section>
 
-      <!-- Verdict spectrum -->
-      <div class="spectrum reveal">
-        <div class="spectrum-track">
-          <div class="spectrum-dot"></div>
-        </div>
-        <div class="spectrum-labels">
-          <div class="spectrum-label incredible">
-            <div class="name">Incredible deal</div>
-            <p>Don't walk, run! This price is rarely seen, making it a fantastic find.</p>
-          </div>
-          <div class="spectrum-label good">
-            <div class="name">Good deal</div>
-            <p>Meaningfully below the typical price. Buy it with confidence — or stock up.</p>
-          </div>
-          <div class="spectrum-label fair">
-            <div class="name">Fair price</div>
-            <p>In line with the market. You're not overpaying, but you're not winning either.</p>
-          </div>
-          <div class="spectrum-label high">
-            <div class="name">Overpriced</div>
-            <p>Above what it should cost. Walk away, wait, or shop around for a better price.</p>
-          </div>
-          <div class="spectrum-label ripoff">
-            <div class="name">Outrageous</div>
-            <p>Massively overpriced compared to the market. Do not buy this here.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <section class="pricing-section" id="pricing"><div class="wrap pricing-layout"><div><span class="eyebrow">Pricing</span><h2>Start free.<br />Scan more with Pro.</h2><p>Try 5 price scans every month, with no account required. Upgrade when you want unlimited scans and faster results.</p></div><div class="plan-pair">
+      <article class="price-plan"><h3>OLMA Free</h3><div class="plan-amount">$0<span>to get started</span></div><ul><li>5 price scans every month</li><li>Home & local comparisons</li><li>Your saved scan library</li><li>No account required</li></ul><a class="btn btn-quiet" href="https://apps.apple.com/us/app/olma-scan-compare/id6790042890" data-cta="pricing_free">Start scanning <span aria-hidden="true">↗</span></a></article>
+      <article class="price-plan pro-plan"><h3>OLMA Pro</h3><div class="plan-amount">$4.99<span>per month · USD</span></div><ul><li>Unlimited price scans</li><li>Home & local comparisons</li><li>Your saved scan library</li><li>Faster results</li></ul><a class="btn btn-primary" href="https://apps.apple.com/us/app/olma-scan-compare/id6790042890" data-cta="pricing_pro">Explore Pro <span aria-hidden="true">↗</span></a></article>
+      <p class="annual-option">Prefer yearly? <strong>OLMA Pro is $40/year.</strong> Save 33% compared with monthly billing.</p>
+      <p class="plan-fineprint">For iPhone and iPad. Pro is an optional subscription. Confirm local pricing and terms in the App Store.</p>
+    </div></div></section>
 
-  <!-- Features: alternating editorial rows -->
-  <section id="features">
-    <div class="wrap">
-      <span class="kicker reveal">Why OLMA</span>
-      <h2 class="reveal" style="--d:.06s">Built for how you<br />actually shop.</h2>
-
-      <div class="feature-rows">
-
-        <div class="feature-row reveal">
-          <div class="feature-copy">
-            <span class="index">— INSTANT COMPARISONS</span>
-            <h3>Live prices, not a stale database.</h3>
-            <p>Every scan runs a fresh web search across retailers. Decisions reflect what the product costs right now — not last quarter.</p>
-          </div>
-          <div class="feature-visual draw">
-            <div class="eolma-bubble bubble-feat bubble-feat-1">
-              $120
-              <small>live price</small>
-            </div>
-            <!-- price line settling onto a fair-value band -->
-            <svg viewBox="0 0 380 200" fill="none" aria-hidden="true">
-              <line class="fv-stroke animate-draw" x1="10" y1="170" x2="370" y2="170" stroke-width="1" style="--len:360" />
-              <line class="fv-accent animate-draw" x1="10" y1="96" x2="370" y2="96" stroke-width="1" stroke-dasharray="4 6" opacity="0.6" style="--len:360" />
-              <polyline class="fv-accent animate-draw" points="10,150 60,120 110,138 160,84 210,104 260,88 310,98 370,96"
-                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="--len:520" />
-              <circle cx="370" cy="96" r="5" fill="#18ac91" />
-              <text class="fv-text" x="12" y="88" font-size="11" letter-spacing="1.5">TYPICAL PRICE</text>
-            </svg>
-          </div>
-        </div>
-
-        <div class="feature-row flip reveal">
-          <div class="feature-copy">
-            <span class="index">— TRAVEL-AWARE</span>
-            <h3>Home and away, one decision.</h3>
-            <p>OLMA knows where you are and where home is. Never overpay when shopping abroad — or wonder if that airport deal is actually a deal.</p>
-          </div>
-          <div class="feature-visual draw">
-            <div class="eolma-bubble bubble-feat bubble-feat-2">
-              €45
-              <small>vs $50 at home</small>
-            </div>
-            <!-- two points connected across a globe arc -->
-            <svg viewBox="0 0 380 200" fill="none" aria-hidden="true" style="overflow:hidden">
-              <circle class="fv-stroke animate-draw" cx="190" cy="230" r="150" stroke-width="1" style="--len:945" />
-              <circle class="fv-stroke animate-draw" cx="190" cy="230" r="110" stroke-width="1" opacity="0.5" style="--len:692" />
-              <path class="fv-accent animate-draw" d="M80 130 Q 190 10 300 130" stroke-width="2" stroke-linecap="round" style="--len:340" />
-              <circle cx="80" cy="130" r="5" fill="#18ac91" />
-              <circle cx="300" cy="130" r="5" fill="#18ac91" />
-              <text class="fv-text" x="62" y="156" font-size="11" letter-spacing="1.5">HERE</text>
-              <text class="fv-text" x="282" y="156" font-size="11" letter-spacing="1.5">HOME</text>
-            </svg>
-          </div>
-        </div>
-
-        <div class="feature-row reveal">
-          <div class="feature-copy">
-            <span class="index">— SMART ADVICE</span>
-            <h3>More than a number.</h3>
-            <p>A recommendation, not just a price: buy now, wait for a sale, or find it cheaper somewhere specific. Decisions are grounded in what the product should cost where you shop.</p>
-          </div>
-          <div class="feature-visual draw">
-            <div class="eolma-bubble bubble-feat bubble-feat-3">
-              Buy now
-              <small>rare price</small>
-            </div>
-            <!-- gauge needle pointing into the good zone -->
-            <svg viewBox="0 0 380 200" fill="none" aria-hidden="true">
-              <path class="fv-stroke animate-draw" d="M60 170 A 130 130 0 0 1 320 170" stroke-width="1.5" style="--len:410" />
-              <path class="animate-draw" d="M60 170 A 130 130 0 0 1 132 61" stroke="#21894f" stroke-width="3" stroke-linecap="round" style="--len:140" />
-              <path class="animate-draw" d="M143 54 A 130 130 0 0 1 237 54" stroke="#b8851f" stroke-width="3" stroke-linecap="round" style="--len:110" />
-              <path class="animate-draw" d="M248 61 A 130 130 0 0 1 320 170" stroke="#bf3d30" stroke-width="3" stroke-linecap="round" style="--len:140" />
-              <line class="fv-accent animate-draw" x1="190" y1="170" x2="112" y2="92" stroke-width="2.5" stroke-linecap="round" style="--len:112" />
-              <circle cx="190" cy="170" r="6" fill="#18ac91" />
-              <text class="fv-text" x="150" y="196" font-size="11" letter-spacing="1.5">DECISION</text>
-            </svg>
-          </div>
-        </div>
-
-        <div class="feature-row flip reveal">
-          <div class="feature-copy">
-            <span class="index">— SCAN LIBRARY</span>
-            <h3>Every scan, remembered.</h3>
-            <p>Compare a product across stores and cities, and watch how prices move before you commit. Your library builds itself as you go.</p>
-          </div>
-          <div class="feature-visual draw">
-            <div class="eolma-bubble bubble-feat bubble-feat-4">
-              ₩55,000
-              <small>saved in seoul</small>
-            </div>
-            <!-- timeline of saved scans -->
-            <svg viewBox="0 0 380 200" fill="none" aria-hidden="true">
-              <line class="fv-stroke animate-draw" x1="30" y1="100" x2="350" y2="100" stroke-width="1.5" style="--len:320" />
-              <circle class="fv-accent animate-draw" cx="70" cy="100" r="8" stroke-width="2" style="--len:51" />
-              <circle class="fv-accent animate-draw" cx="150" cy="100" r="8" stroke-width="2" style="--len:51" />
-              <circle class="fv-accent animate-draw" cx="230" cy="100" r="8" stroke-width="2" style="--len:51" />
-              <circle cx="310" cy="100" r="8" fill="#18ac91" />
-              <text class="fv-text" x="52" y="136" font-size="11" letter-spacing="1.5">LISBON</text>
-              <text class="fv-text" x="134" y="72" font-size="11" letter-spacing="1.5">SEOUL</text>
-              <text class="fv-text" x="211" y="136" font-size="11" letter-spacing="1.5">OSLO</text>
-              <text class="fv-text" x="292" y="72" font-size="11" letter-spacing="1.5">TODAY</text>
-            </svg>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Pricing: ledger table -->
-  <section id="pricing">
-    <div class="wrap">
-      <span class="kicker reveal">Pricing</span>
-      <h2 class="reveal" style="--d:.06s">Pays for itself with<br />one good deal.</h2>
-
-      <div class="plans reveal" style="--d:.12s">
-        <div class="plans-head">
-          <span></span>
-          <div>
-            <div class="plan-name">Free</div>
-            <div class="plan-price">$0</div>
-            <div class="plan-per">forever</div>
-          </div>
-          <div>
-            <div class="plan-name pro">Pro</div>
-            <div class="plan-price">$4.99</div>
-            <div class="plan-per">per month</div>
-          </div>
-        </div>
-
-        <div class="plan-row">
-          <span class="what">Price scans</span>
-          <span class="mark dim">5 per month</span>
-          <span class="mark yes">Unlimited</span>
-        </div>
-        <div class="plan-row">
-          <span class="what">Instant decisions</span>
-          <span class="mark">Included</span>
-          <span class="mark yes">Included</span>
-        </div>
-        <div class="plan-row">
-          <span class="what">Home &amp; local comparison</span>
-          <span class="mark">Included</span>
-          <span class="mark yes">Included</span>
-        </div>
-        <div class="plan-row">
-          <span class="what">Analysis speed</span>
-          <span class="mark dim">Standard</span>
-          <span class="mark yes">Priority servers</span>
-        </div>
-
-
-        <div class="plans-cta">
-          <span></span>
-          <a class="btn btn-quiet" href="https://apps.apple.com/us/app/olma-scan-compare/id6790042890" onclick="trackDownload()">Download free</a>
-          <a class="btn btn-primary" href="https://apps.apple.com/us/app/olma-scan-compare/id6790042890" onclick="trackDownload()">Go Pro</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Final CTA -->
-  <section class="final-cta" id="download">
-    <span class="pebble pebble-l" aria-hidden="true"></span>
-    <span class="pebble olive pebble-r" aria-hidden="true"></span>
-    <div class="wrap">
-      <span class="kicker reveal">Get started</span>
-      <h2 class="reveal" style="--d:.06s">Stop guessing.<br />Start scanning.</h2>
-      <p class="lede reveal" style="--d:.12s">Unlock instant price checks and save money everywhere you shop — at home or halfway around the world.</p>
-      <a class="btn btn-primary reveal" style="--d:.2s" href="https://apps.apple.com/us/app/olma-scan-compare/id6790042890" onclick="trackDownload()">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.126 3.805 3.063 1.52-.06 2.1-.986 3.923-.986 1.815 0 2.348.986 3.923.947 1.635-.04 2.65-1.525 3.655-2.99 1.16-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.482-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.56-1.702z" />
-        </svg>
-        Download on the App Store
-      </a>
-    </div>
-  </section>
-
-  <footer>
-    <div class="wrap footer-inner">
-      <span class="footer-brand" aria-label="OLMA">
-        <video src="assets/LogoAnimation.mov" class="footer-logo-video" autoplay muted playsinline onended="setTimeout(() => this.play(), 5000)"></video>
-        <span>© 2026 <span class="kr">· 얼마</span></span>
-      </span>
-      <span>
-        <a href="/privacy">Privacy</a>
-        <a href="/terms">Terms of Use</a>
-        <a href="mailto:evan@olmaapp.com">Support</a>
-      </span>
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
-  <script>
-    function trackDownload() {
-      if (typeof fbq === 'function') fbq('trackCustom', 'DownloadClick');
-      if (typeof gtag === 'function') gtag('event', 'download_click', { 'event_category': 'engagement' });
-    }
-  </script>
+    <section class="wrap home-guides" id="guides" aria-labelledby="guides-heading"><div class="section-heading"><div><span class="eyebrow">Shopping guides</span><h2 id="guides-heading">Make your next purchase<br />a smarter one.</h2></div><a class="demo-link" href="/blog/">All shopping guides <span aria-hidden="true">↗</span></a></div>
+      <!-- GUIDES:START -->
+<div class="guide-grid"><article class="guide-card">
+      <span class="kicker">Price comparison</span>
+      <h3><a href="/blog/compare-prices-from-a-photo/">How to compare prices from a photo</a></h3>
+      <p>Learn how to check a product&#x27;s price from a photo, verify the exact model, and compare real costs before buying with your iPhone.</p>
+    </article><article class="guide-card">
+      <span class="kicker">Smarter shopping</span>
+      <h3><a href="/blog/how-to-tell-if-a-sale-is-a-good-deal/">How to tell if a sale is actually a good deal</a></h3>
+      <p>Check whether a sale price is a real saving. Compare the same product, calculate the total cost, and look beyond the advertised discount.</p>
+    </article><article class="guide-card">
+      <span class="kicker">Everyday savings</span>
+      <h3><a href="/blog/save-money-shopping/">How to save money shopping: a before-you-buy checklist</a></h3>
+      <p>A practical shopping checklist: set a target price, compare products and unit costs, check deal conditions, and avoid buying more than you need.</p>
+    </article><article class="guide-card">
+      <span class="kicker">Shopping abroad</span>
+      <h3><a href="/blog/is-duty-free-cheaper/">Is duty-free cheaper? How to compare before you buy</a></h3>
+      <p>Compare duty-free and home prices using the same product size and currency. Check the final cost before deciding whether an airport offer is worth it.</p>
+    </article></div>
+<!-- GUIDES:END -->
+    </section>
+    <section class="wrap home-faq" id="faq" aria-labelledby="faq-heading"><div><span class="eyebrow">Common questions</span><h2 id="faq-heading">Before your <br />first scan.</h2><p>Still curious? <a href="mailto:evan@olmaapp.com">Say hello ↗</a></p></div><div class="faq-list"><details><summary>What is OLMA?</summary><p>OLMA is a photo price comparison app for iPhone and iPad. Photograph a product or price tag to find current retailer prices and get context on whether the price is a good deal.</p></details>
+<details><summary>How can I compare prices from a photo?</summary><p>Open OLMA and photograph the product or price tag. The app identifies the product and searches for prices. Check that the model, size, and condition match before using the comparison to decide.</p></details>
+<details><summary>Is OLMA free to use?</summary><p>OLMA includes 5 free price scans per month without an account. Optional Pro subscriptions unlock unlimited scans and faster results. Check the App Store purchase screen for the price and terms in your region.</p></details>
+<details><summary>Can I compare prices while shopping abroad?</summary><p>Yes. OLMA compares prices locally and in your home market, with currency conversion for context. Check your final payment cost and any applicable fees before buying.</p></details>
+<details><summary>Does OLMA guarantee the lowest price?</summary><p>No. Product matches, available offers, and prices can change. Confirm the exact item, stock, shipping, taxes, and return terms with the retailer. A price verdict helps you investigate a deal; it does not guarantee savings.</p></details>
+<details><summary>Do I need a barcode to check a price?</summary><p>No. OLMA can start a comparison from a photo of the product or price tag. Clear photos that show the brand, model, and size help you check that the result matches the item.</p></details></div></section>
+    <section class="closing-section" id="download"><div class="wrap"><span class="eyebrow">Get OLMA</span><h2>Know more.<br />Shop with confidence.</h2><p>Your next price check is a photo away.<br />Start with 5 free scans a month.</p><a class="btn btn-primary" href="https://apps.apple.com/us/app/olma-scan-compare/id6790042890" data-cta="download">Download OLMA free <span aria-hidden="true">↗</span></a><small>Available for iPhone and iPad.</small></div></section>
+  </main>
+  <footer class="home-footer wrap"><a href="#top" aria-label="OLMA home"><img src="/assets/olma-logo-full.png" width="3338" height="846" alt="OLMA" /></a><span>Know the fair price, anywhere.<small><span lang="ko">얼마?</span> — “how much?” · © 2026 OLMA</small></span><div><a href="/blog/">Guides</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="mailto:evan@olmaapp.com">Contact ↗</a></div></footer>
+  <script src="/js/main.js"></script>
 </body>
 </html>

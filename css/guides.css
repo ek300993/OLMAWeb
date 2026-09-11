@@ -1,0 +1,58 @@
+/* Shared shopping guides, using the site's existing colors and typography. */
+.skip-link { position: fixed; top: -100px; left: 20px; z-index: 100; padding: 12px 20px; background: var(--bg); color: var(--ink); }
+.skip-link:focus { top: 12px; }
+:focus-visible { outline: 3px solid var(--accent-ink); outline-offset: 5px; }
+[id] { scroll-margin-top: 90px; }
+.hero .brand-origin { margin-top: 20px; font-size: 14px; color: var(--ink-2); }
+.hero .hero-note { color: var(--ink-2); }
+.guide-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 44px; margin-top: 32px; }
+.guide-card { padding: 30px 0; border-top: 1px solid var(--hairline-strong); }
+.guide-card .kicker { margin-bottom: 12px; font-size: 11px; }
+.guide-card :is(h2, h3) { font-size: clamp(23px, 3vw, 30px); line-height: 1.2; }
+.guide-card :is(h2, h3) a { color: var(--ink); text-decoration: none; }
+.guide-card :is(h2, h3) a:hover { color: var(--accent-ink); text-decoration: underline; }
+.guide-card p { margin: 16px 0; color: var(--ink-2); }
+.text-link, .article-main a:not(.btn), .breadcrumbs a { color: var(--accent-ink); text-underline-offset: 3px; }
+.section-link { display: inline-block; margin-top: 24px; }
+.faq-list { max-width: 800px; margin-top: 32px; }
+.faq-list details { border-top: 1px solid var(--hairline-strong); padding: 22px 0; }
+.faq-list summary { cursor: pointer; font-size: 19px; font-weight: 600; }
+.faq-list p { margin-top: 14px; color: var(--ink-2); }
+.guides-main { padding: 118px 0 70px; }
+.guides-main h1 { font-size: clamp(40px, 6vw, 68px); max-width: 18ch; }
+.breadcrumbs { display: flex; flex-wrap: wrap; gap: 10px; font-size: 13px; margin-bottom: 28px; color: var(--ink-2); }
+.article-main { width: min(760px, calc(100% - 48px)); margin: auto; padding: 112px 0 70px; }
+.article-main h1 { font-size: clamp(36px, 5.5vw, 60px); line-height: 1.08; }
+.article-meta { font-size: 13px; color: var(--ink-2); margin: 20px 0 28px; }
+.article-summary { padding: 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); font-size: 18px; }
+.article-summary p { margin: 8px 0 0; }
+.article-toc { margin: 30px 0; padding-bottom: 24px; border-bottom: 1px solid var(--hairline); }
+.article-toc ol { padding-left: 22px; margin-top: 10px; }
+.article-toc li { margin: 6px 0; }
+.article-body h2, .article-cta h2, .related-guides h2 { font-size: clamp(26px, 3.5vw, 34px); line-height: 1.2; margin: 36px 0 16px; }
+.article-body h3 { font-size: 23px; margin: 26px 0 14px; }
+.article-body p, .article-body li { font-size: 17px; line-height: 1.75; }
+.article-body p { margin: 16px 0; }
+.article-body ul, .article-body ol { padding-left: 24px; margin: 18px 0; }
+.article-body li { margin: 10px 0; }
+.table-scroll { overflow-x: auto; margin: 24px 0; }
+.article-body table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.article-body caption { text-align: left; margin-bottom: 12px; color: var(--ink-2); }
+.article-body th, .article-body td { padding: 12px; text-align: left; border-bottom: 1px solid var(--hairline-strong); }
+.article-body thead { background: var(--accent-soft); }
+.article-cta { padding: 28px; margin: 36px 0; border: 1px solid var(--hairline-strong); border-radius: var(--r-m); }
+.article-cta h2 { margin-top: 0; }
+.article-cta p { margin: 14px 0 22px; color: var(--ink-2); }
+.article-cta small { display: block; margin-top: 14px; color: var(--ink-2); }
+.related-guides { padding: 0; }
+.related-guides .guide-grid { grid-template-columns: 1fr; gap: 0; }
+.related-guides h3 { font-size: 24px; }
+@media (max-width: 720px) {
+  .nav-links a.nav-guides { display: inline; }
+  .nav-links { gap: 16px; }
+  .guide-grid { grid-template-columns: 1fr; }
+  .article-main { width: calc(100% - 40px); padding-top: 94px; }
+  .article-summary, .article-cta { padding: 20px; }
+  .article-cta .btn { width: 100%; justify-content: center; text-align: center; }
+  .footer-inner { gap: 20px; flex-wrap: wrap; }
+}

@@ -1148,8 +1148,9 @@ footer { padding: 0 0 48px; }
 /* ---------------- Scroll reveal ---------------- */
 
 .reveal {
-  opacity: 0;
-  transform: translateY(28px);
+  /* Content remains visible when JavaScript or observers are unavailable. */
+  opacity: 1;
+  transform: none;
   transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
   transition-delay: var(--d, 0s);
 }
