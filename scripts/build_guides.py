@@ -58,6 +58,12 @@ def page(title, description, path, body, data, kind="website"):
     home = (ROOT / "index.html").read_text()
     analytics = home[home.index('  <!-- Google tag'):home.index('  <!-- Meta Pixel Code -->')]
     pixel = home[home.index('  <!-- Meta Pixel Code -->'):home.index('  <!-- End Meta Pixel Code -->')]
+    # Use the homepage navigation as the single source for links and CTA markup.
+    nav_start = home.index('  <nav class="nav site-nav"')
+    navigation = home[nav_start:home.index('</nav>', nav_start) + len('</nav>')]
+    navigation = navigation.replace('href="#', 'href="/#')
+    current = 'page' if path == '/blog/' else 'location'
+    navigation = navigation.replace('class="nav-guides"', f'class="nav-guides" aria-current="{current}"')
     # A noscript image is body content, not valid head content.
     pixel_script = pixel[:pixel.index('  <noscript>')] if '  <noscript>' in pixel else pixel
     return f'''<!DOCTYPE html>
@@ -70,6 +76,7 @@ def page(title, description, path, body, data, kind="website"):
   <link rel="icon" href="/assets/olma-logo.png" />
   <link rel="stylesheet" href="/css/style.css?v=20260911-buttons" />
   <link rel="stylesheet" href="/css/guides.css" />
+  <link rel="stylesheet" href="/css/navigation.css?v=20260911-nav" />
   {schema(data)}
 {analytics}{pixel_script}
   <script src="/js/analytics.js" defer></script>
@@ -77,10 +84,7 @@ def page(title, description, path, body, data, kind="website"):
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <nav class="nav" aria-label="Main navigation"><div class="nav-inner">
-    <a class="brand" href="/" aria-label="OLMA home"><img src="/assets/olma-logo-full.png" width="3338" height="846" alt="OLMA" class="main-logo-img" /></a>
-    <div class="nav-links"><a href="/#how">How it works</a><a href="/#pricing">Pricing</a><a class="nav-guides" href="/blog/">Guides</a><a class="nav-cta" data-cta="navigation" href="{APP}">Download</a></div>
-  </div></nav>
+{navigation}
   {body}
   <footer><div class="wrap footer-inner"><a href="/" aria-label="OLMA home"><img src="/assets/olma-logo-full.png" alt="OLMA" width="3338" height="846" class="footer-logo-img" /></a><span><a href="/blog/">Shopping guides</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms of Use</a><a href="mailto:evan@olmaapp.com">Support</a></span></div></footer>
 </body>

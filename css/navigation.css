@@ -1,0 +1,29 @@
+/* Shared homepage and shopping-guide navigation. */
+.site-nav.nav { background: #fafbf8ec; border-bottom: 1px solid #d9e2dd; }
+.site-nav .nav-inner { width: min(1120px, calc(100% - 80px)); height: 76px; }
+.site-nav .main-logo-img { height: 25px; }
+.site-nav .nav-links { gap: 30px; }
+.site-nav .nav-links a { display: inline-flex; color: #52635d; font-size: 12px; }
+.site-nav .nav-links a:hover, .site-nav .nav-links a[aria-current] { color: #087c68; }
+.site-nav .nav-actions { display: flex; align-items: center; }
+.site-nav .nav-download { color: #fff; background: var(--action-bg); border-radius: 5px; padding: 11px 17px; text-decoration: none; font-size: 12px; font-weight: 700; display: flex; gap: 20px; align-items: center; transition: background .2s; white-space: nowrap; }
+.site-nav .nav-download:hover { background: var(--action-hover); }
+@media (max-width: 1000px) {
+  .site-nav .nav-inner { width: calc(100% - 56px); }
+}
+@media (max-width: 760px) {
+  .site-nav .nav-inner { width: calc(100% - 40px); height: 66px; }
+  .site-nav .nav-links { gap: 17px; }
+  .site-nav .nav-links a { font-size: 11px; }
+  .site-nav .nav-links a[href$="#features"] { display: none; }
+  .site-nav .main-logo-img { height: 24px; }
+}
+@media (max-width: 540px) {
+  .site-nav .nav-links { margin-left: auto; margin-right: 20px; }
+  .site-nav .nav-links a:not(.nav-guides) { display: none; }
+  .site-nav .nav-download { padding: 10px 14px; gap: 17px; font-size: 11px; }
+  .site-nav .main-logo-img { height: 23px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-nav a { transition: none; }
+}
